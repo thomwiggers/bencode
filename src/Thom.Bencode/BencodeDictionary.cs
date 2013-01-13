@@ -22,40 +22,82 @@
 
 using System.Collections.Generic;
 namespace Thom.Bencode
-{
-    class BencodeDictionary : Dictionary<string,IBencodeItem>,IBencodeItem
+{ 
+	/// <summary>
+	/// Bencode dictionary.
+	/// </summary>
+    public class BencodeDictionary : Dictionary<string,IBencodeItem>,IBencodeItem
     {
-        internal BencodeDictionary()
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeDictionary"/> class.
+		/// </summary>
+        public BencodeDictionary()
             : base()
         {
 
         }
-        internal BencodeDictionary(IDictionary<string,IBencodeItem> dictionary)
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeDictionary"/> class.
+		/// </summary>
+		/// <param name='dictionary'>
+		/// Dictionary.
+		/// </param>
+        public BencodeDictionary(IDictionary<string,IBencodeItem> dictionary)
             : base(dictionary)
         {
 
         }
-        internal BencodeDictionary(IDictionary<string, string> dictionary)
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeDictionary"/> class.
+		/// </summary>
+		/// <param name='dictionary'>
+		/// Dictionary.
+		/// </param>
+        public BencodeDictionary(IDictionary<string, string> dictionary)
         {
             foreach (KeyValuePair<string, string> item in dictionary)
             {
                 Add(item.Key, new BencodeString(item.Value));
             }
         }
-        internal BencodeDictionary(IDictionary<string, int> dictionary)
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeDictionary"/> class.
+		/// </summary>
+		/// <param name='dictionary'>
+		/// Dictionary.
+		/// </param>
+        public BencodeDictionary(IDictionary<string, int> dictionary)
         {
             foreach (KeyValuePair<string, int> item in dictionary)
             {
                 Add(item.Key, new BencodeInt(item.Value));
             }
         }
-        internal BencodeDictionary(IDictionary<string, long> dictionary)
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeDictionary"/> class.
+		/// </summary>
+		/// <param name='dictionary'>
+		/// Dictionary.
+		/// </param>
+        public BencodeDictionary(IDictionary<string, long> dictionary)
         {
             foreach (KeyValuePair<string, long> item in dictionary)
             {
                 Add(item.Key, new BencodeInt(item.Value));
             }
         }
+
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="Thom.Bencode.BencodeDictionary"/>.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="System.String"/> that represents the current <see cref="Thom.Bencode.BencodeDictionary"/>.
+		/// </returns>
         public override string ToString()
         {
             string returnString = "";
@@ -71,6 +113,12 @@ namespace Thom.Bencode
             return returnString;
         }
 
+		/// <summary>
+		/// Tos the bytes.
+		/// </summary>
+		/// <returns>
+		/// The bytes.
+		/// </returns>
         public byte[] ToBytes()
         {
             List<byte> blist = new List<byte>();
@@ -93,32 +141,100 @@ namespace Thom.Bencode
         }
  
 
-
-        internal void Add(string key, string value)
+		/// <summary>
+		/// Add the specified key and value.
+		/// </summary>
+		/// <param name='key'>
+		/// Key.
+		/// </param>
+		/// <param name='value'>
+		/// Value.
+		/// </param>
+        public void Add(string key, string value)
         {
             Add(key,new BencodeString(value));
         }
-        internal void Add(string key, byte[] value)
+
+		/// <summary>
+		/// Add the specified key and value.
+		/// </summary>
+		/// <param name='key'>
+		/// Key.
+		/// </param>
+		/// <param name='value'>
+		/// Value.
+		/// </param>
+        public void Add(string key, byte[] value)
         {
             Add(key, new BencodeString(value));
         }
-        internal void Add(string key, int value)
+
+		/// <summary>
+		/// Add the specified key and value.
+		/// </summary>
+		/// <param name='key'>
+		/// Key.
+		/// </param>
+		/// <param name='value'>
+		/// Value.
+		/// </param>
+        public void Add(string key, int value)
         {
             Add(key, new BencodeInt(value));
         }
-        internal void Add(string key, long value)
+
+		/// <summary>
+		/// Add the specified key and value.
+		/// </summary>
+		/// <param name='key'>
+		/// Key.
+		/// </param>
+		/// <param name='value'>
+		/// Value.
+		/// </param>
+        public void Add(string key, long value)
         {
             Add(key, new BencodeInt(value));
         }
-        internal void AddList(string key, params string[] list)
+
+		/// <summary>
+		/// Adds the list.
+		/// </summary>
+		/// <param name='key'>
+		/// Key.
+		/// </param>
+		/// <param name='list'>
+		/// List.
+		/// </param>
+        public void AddList(string key, params string[] list)
         {
             Add(key, new BencodeList(list));
         }
-        internal void AddList(string key, params int[] list)
+
+		/// <summary>
+		/// Adds the list.
+		/// </summary>
+		/// <param name='key'>
+		/// Key.
+		/// </param>
+		/// <param name='list'>
+		/// List.
+		/// </param>
+        public void AddList(string key, params int[] list)
         {
             Add(key, new BencodeList(list));
         }
-        internal void AddList(string key, params IBencodeItem[] list)
+
+		/// <summary>
+		/// Adds the list.
+		/// </summary>
+		/// <param name='key'>
+		/// Key.
+		/// </param>
+		/// <param name='list'>
+		/// List.
+		/// </param>
+        public void AddList(string key, params IBencodeItem[] list)
         {
             Add(key, new BencodeList(list));
         }

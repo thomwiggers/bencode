@@ -21,11 +21,28 @@
  */
 namespace Thom.Bencode
 {
-    internal class BencodeInt : IBencodeItem
+	/// <summary>
+	/// Bencode int.
+	/// </summary>
+    public class BencodeInt : IBencodeItem
     {
+		/// <summary>
+		/// Is the value set?
+		/// </summary>
         private bool set = false;
+
+		/// <summary>
+		/// The value.
+		/// </summary>
         private long value;
-        internal long Value
+
+		/// <summary>
+		/// Gets or sets the value.
+		/// </summary>
+		/// <value>
+		/// The value.
+		/// </value>
+        public long Value
         {
             set
             {
@@ -38,21 +55,42 @@ namespace Thom.Bencode
             }
         }
 
-              
-        internal BencodeInt()
+        /// <summary>Intitializes a new empty instance of the <see cref="Thom.Bencode.BencodeInt"/> 
+		/// class.
+		/// </summary>
+		public BencodeInt()
         {
             
         }
 
-        internal BencodeInt(int value)
-        {
-            this.Value = value;
-        }
-        internal BencodeInt(long value)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeInt"/> class.
+		/// </summary>
+		/// <param name='value'>
+		/// Value.
+		/// </param>
+        public BencodeInt(int value)
         {
             this.Value = value;
         }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeInt"/> class.
+		/// </summary>
+		/// <param name='value'>
+		/// Value.
+		/// </param>
+        public BencodeInt(long value)
+        {
+            this.Value = value;
+        }
+
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="Thom.Bencode.BencodeInt"/>.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="System.String"/> that represents the current <see cref="Thom.Bencode.BencodeInt"/>.
+		/// </returns>
         public override string ToString()
         {
             if (this.set)
@@ -62,6 +100,12 @@ namespace Thom.Bencode
             return "";
         }
 
+		/// <summary>
+		/// Tos the bytes.
+		/// </summary>
+		/// <returns>
+		/// The bytes.
+		/// </returns>
         public byte[] ToBytes()
         {
             return System.Text.Encoding.UTF8.GetBytes(ToString());

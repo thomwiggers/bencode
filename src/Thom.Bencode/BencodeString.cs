@@ -25,31 +25,68 @@ using System.Linq;
 using System.Collections.Generic;
 namespace Thom.Bencode
 {
-    internal class BencodeString : IBencodeItem
+    public class BencodeString : IBencodeItem
     {
-        internal string Value
+		/// <summary>
+		/// Gets or sets the value.
+		/// </summary>
+		/// <value>
+		/// The value.
+		/// </value>
+        public string Value
         {
             set;
             get;
         }
-        internal byte[] ByteValue
+
+		/// <summary>
+		/// Gets or sets the byte value.
+		/// </summary>
+		/// <value>
+		/// The byte value.
+		/// </value>
+        public byte[] ByteValue
         {
             set;
             get;
         }
-        internal BencodeString()
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeString"/> class.
+		/// </summary>
+        public BencodeString()
         {
 
         }
-        internal BencodeString(string value)
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeString"/> class.
+		/// </summary>
+		/// <param name='value'>
+		/// Value.
+		/// </param>
+        public BencodeString(string value)
         {
             this.Value = value;
         }
-        internal BencodeString(byte[] value)
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Thom.Bencode.BencodeString"/> class.
+		/// </summary>
+		/// <param name='value'>
+		/// Value.
+		/// </param>
+        public BencodeString(byte[] value)
         {
             this.ByteValue = value;
         }
 
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="Thom.Bencode.BencodeString"/>.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="System.String"/> that represents the current <see cref="Thom.Bencode.BencodeString"/>.
+		/// </returns>
         public override string ToString()
         {
             if (Value != null)
@@ -59,6 +96,12 @@ namespace Thom.Bencode
             return "";
         }
 
+		/// <summary>
+		///  Returns a <see cref="System.Byte" />[] that represents the current <see cref="Thom.Bencode.BencodeString" />.
+		/// </summary>
+		/// <returns>
+		///  A <see cref="System.Byte"/>[] that represents the current <see cref="Thom.Bencode.BencodeString"/>.
+		/// </returns>
         public byte[] ToBytes()
         {
             if (ByteValue == null)
