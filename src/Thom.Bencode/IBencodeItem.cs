@@ -21,9 +21,22 @@
  */
 namespace Thom.Bencode
 {
-    internal interface IBencodeItem
+    public interface IBencodeItem
     {
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="Thom.Bencode.IBencodeItem"/>.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="System.String"/> that represents the current <see cref="Thom.Bencode.IBencodeItem"/>.
+		/// </returns>
         string ToString();
+
+		/// <summary>
+		/// Tos the bytes.
+		/// </summary>
+		/// <returns>
+		/// The bytes.
+		/// </returns>
         byte[] ToBytes();
     }
 }
