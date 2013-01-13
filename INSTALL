@@ -1,0 +1,13 @@
+Build using either the C# or the mono compiler. 
+
+Makefile TODO
+
+System requirements:
+========================
+Windows: 
+	* .NET 4.0 runtime
+	
+
+Linux / Unix:
+	* Mono 2.8 or later.
+	     2.10 recommended
