@@ -1,0 +1,6 @@
+Name: Thom.BencodeTests
+Description: Thom.BencodeTests
+Version: 0.1
+
+Requires: 
+Libs: -r:/usr/local/lib/crtorrent/Thom.BencodeTests.dll

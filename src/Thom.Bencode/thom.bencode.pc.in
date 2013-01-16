@@ -1,0 +1,6 @@
+Name: Thom.Bencode
+Description: Thom.Bencode
+Version: 0.1
+
+Requires: 
+Libs: -r:@expanded_libdir@/@PACKAGE@/Thom.Bencode.dll

@@ -1,0 +1,6 @@
+Name: Thom.Bencode
+Description: Thom.Bencode
+Version: 0.1
+
+Requires: 
+Libs: -r:/usr/local/lib/crtorrent/Thom.Bencode.dll
