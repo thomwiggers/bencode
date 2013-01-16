@@ -22,7 +22,7 @@ using System;
 using NUnit.Framework;
 using Thom.Bencode;
 
-namespace Thom.CrtorrentTests
+namespace Thom.BencodeTests
 {
 	[TestFixture()]
 	public class BencodeIntTest
